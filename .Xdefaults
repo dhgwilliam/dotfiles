@@ -1,0 +1,40 @@
+URxvt.scrollBar:		false
+URxvt.scrollBar_right:		true
+URxvt.scrollTtyKeypress:	false
+URxvt.tintColor:                #000000
+URxvt.shading:                  15
+
+URxvt.font:                  xft:Monospace:pixelsize=12
+
+URxvt.cursorBlink:              true
+URxvt.cursorColor:              #FFFFFF
+URxvt.cursorColor2:		#000000
+
+URxvt.background:               #000000
+URxvt.foreground:               #FFFFFF
+
+URxvt.color0:                   #000000
+URxvt.color1:                   #af0000
+URxvt.color2:                   #00af00
+URxvt.color3:                   #afaf00
+URxvt.color4:                   #0000af
+URxvt.color5:                   #af00af
+URxvt.color6:                   #00afaf
+URxvt.color7:                   #9a9a9a
+URxvt.color8:                   #5f5f5f
+URxvt.color9:                   #d70000
+URxvt.color10:                  #00d700
+URxvt.color11:                  #d7d700
+URxvt.color12:                  #0000d7
+URxvt.color13:                  #d700d7
+URxvt.color14:                  #00d7d7
+URxvt.color15:                  #d7d7d7
+
+URxvt.urgentOnBell: true
+
+# mouseless yanking
+URxvt.keysym.M-u: perl:mark-yank-urls:activate_mark_mode
+URxvt.underlineURLs: true
+URxvt.perl-lib: /home/david/.urxvt/
+URxvt.perl-ext: selection,mark-yank-urls
+URxvt.urlLauncher: firefox
