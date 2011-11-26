@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo mpdwidget.text = "\" `mpc | head -n 1` |\"" | awesome-client
