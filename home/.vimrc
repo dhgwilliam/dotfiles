@@ -19,6 +19,9 @@ Bundle 'rodjek/vim-puppet'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/syntastic'
 Bundle 'Pychimp/vim-sol'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'tpope/vim-fugitive'
 
 filetype plugin indent on     " required!
 
@@ -68,6 +71,8 @@ set number
 " Map the arrow keys to be based on display lines, not physical lines
 map <Down> gj
 map <Up> gk
+map j gj
+map k gk
 
 " Toggle hlsearch with <leader>hs
 nmap <leader>hs :set hlsearch! hlsearch?<CR>
@@ -91,3 +96,10 @@ let &colorcolumn=join(range(81,999),",")
 " map CtrlP buffer search
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>m :CtrlPMRUFiles<CR>
+
+" vim-gutter settings
+
+" linebreak & wrap settings
+set wrap
+set linebreak
+set nolist
