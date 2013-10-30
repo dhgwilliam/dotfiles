@@ -55,9 +55,7 @@ color zenburn
 syn on
 
 " folding
-" set fdm=syntax
-" nnoremap <space><space> za
-" autocmd BufRead * setlocal nofoldenable
+autocmd FileType mkd normal zR
 
 " remove trailing whitespace in puppet files
 autocmd FileType puppet autocmd BufWritePre <buffer> :%s/\s\+$//e
@@ -80,26 +78,21 @@ nmap <leader>hs :set hlsearch! hlsearch?<CR>
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
-" tab settings
+" tab, linebreak & wrap settings
 set smartindent
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
-" centralize backup files & swp files
-" set backupdir=./.backup,.,/tmp
-" set directory=.,./.backup,/tmp
+set wrap
+set linebreak
+set nolist
 
 " 80 column concern
 let &colorcolumn=join(range(81,999),",")
 
-" map CtrlP buffer search
+" map CtrlP buffer & MRU search
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>m :CtrlPMRUFiles<CR>
 
-" vim-gutter settings
-
-" linebreak & wrap settings
-set wrap
-set linebreak
-set nolist
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
