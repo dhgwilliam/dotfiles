@@ -22,6 +22,7 @@ Bundle 'Pychimp/vim-sol'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-fugitive'
+Bundle 'mbbill/undotree'
 
 filetype plugin indent on     " required!
 
@@ -61,7 +62,8 @@ autocmd FileType mkd normal zR
 autocmd FileType puppet autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " tagbar
-map <leader>t :TagbarToggle<CR>
+map <leader>t :TagbarOpenAutoClose<CR>
+map <leader>tt :TagbarToggle<CR>
 
 " line numbering
 set number
@@ -96,3 +98,13 @@ map <Leader>m :CtrlPMRUFiles<CR>
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
+
+" options i stole from /etc/vim/vimrc
+set showcmd    " Show (partial) command in status line.
+set showmatch  " Show matching brackets.
+set ignorecase " Do case insensitive matching
+set smartcase  " Do smart case matching
+set incsearch  " Incremental search
+
+" undotree
+nnoremap <Leader>u :UndotreeToggle<cr>
