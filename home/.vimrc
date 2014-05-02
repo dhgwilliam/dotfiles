@@ -60,6 +60,7 @@ autocmd FileType mkd normal zR
 
 " remove trailing whitespace in puppet files
 autocmd FileType puppet autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType yaml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " tagbar
 map <leader>t :TagbarOpenAutoClose<CR>
@@ -90,7 +91,7 @@ set linebreak
 set nolist
 
 " 80 column concern
-let &colorcolumn=join(range(81,999),",")
+let &colorcolumn=81
 
 " map CtrlP buffer & MRU search
 map <Leader>b :CtrlPBuffer<CR>
@@ -108,3 +109,7 @@ set incsearch  " Incremental search
 
 " undotree
 nnoremap <Leader>u :UndotreeToggle<cr>
+
+map <Leader>[ :bp<CR>
+map <Leader>] :bn<CR>
+
