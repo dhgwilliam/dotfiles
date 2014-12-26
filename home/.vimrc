@@ -1,6 +1,16 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+" Bootstrap Vundle
+let vundle_ready = 1
+  if !filereadable(expand('~/.vim/bundle/vundle/README.md'))
+  let vundle_ready = 0
+  echo 'Found that Vundle is not installed. Installing...'
+  echo
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+endif
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -22,6 +32,22 @@ Bundle 'Pychimp/vim-sol'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-fugitive'
+Bundle 'mileszs/ack.vim'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'rdolgushin/groovy.vim'
+Bundle 'fatih/vim-go'
+
+" overtone plugins
+" Bundle 'guns/vim-clojure-static'
+" Bundle 'tpope/vim-fireplace'
+" Bundle 'tpope/vim-classpath'
+" Bundle 'guns/vim-clojure-highlight'
+
+if vundle_ready == 0
+    echo 'Installing bundles...'
+    echo
+    :BundleInstall
+endif
 
 filetype plugin indent on     " required!
 
