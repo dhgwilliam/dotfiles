@@ -26,7 +26,7 @@ if has("lua")
 endif
 Bundle 'tpope/vim-surround'
 Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/ZoomWin'
+" Bundle 'vim-scripts/ZoomWin'
 Bundle 'rodjek/vim-puppet'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/syntastic'
