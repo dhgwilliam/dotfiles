@@ -33,25 +33,34 @@ plugins=(git vi-mode autojump ssh-agent zsh-syntax-highlighting)
 
 # autojump config
 source $ZSH/oh-my-zsh.sh
-source /etc/autojump.zsh
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 # PATH & envpuppet
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/npm/bin:/Users/david/bin
 export ENVPUPPET_BASEDIR=/Users/david/src
 export KEYTIMEOUT=1
 export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
+export GOPATH=/usr/local
 
 # vi-mode
 set -o vi
 bindkey '^?' backward-delete-char
 
 # ALIASES
-alias t='todo.sh -ad /Users/david/.todo/config'
-alias faro='open afp://guest@faro/Public'
+alias t=task
 alias gist=jist
 alias v=/usr/bin/vagrant
 alias tmux='tmux -2'
 alias marked='open -a marked'
+alias sed=gsed
+alias cust..='cd `pwd | cut -d/ -f1-5`'
+alias gpf='git pull --ff-only'
+alias gcv='git commit -v'
+alias gcav='git commit -av'
+alias vim=/usr/local/bin/vim
+alias vi=vim
+alias vdf='vagrant destroy -f'
 
 # rbenv config
 export PATH="$HOME/.rbenv/bin:$PATH"
