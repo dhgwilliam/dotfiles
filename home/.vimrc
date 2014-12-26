@@ -108,14 +108,21 @@ if has("lua")
   autocmd FileType ruby setlocal omnifunc=rubycomplete#CompleteTags
 endif
 
+" force correct backspace behavior
+set backspace=indent,eol,start
 
 " nerdtree
 map <leader>n :NERDTreeToggle<CR>
+map <leader><leader>n :NERDTreeFocus<CR>
 " autocmd vimenter * if !argc() | NERDTree | endif
 
-" colorscheme
-color zenburn
 syn on
+" colorscheme dark
+" color zenburn
+" AirlineTheme zenburn
+" colorscheme light
+color pyte
+let g:airline_theme = 'laederon'
 
 " folding
 autocmd FileType mkd normal zR
@@ -151,7 +158,9 @@ set linebreak
 set nolist
 
 " 80 column concern
-let &colorcolumn=join(range(81,999),",")
+if exists('+colorcolumn')
+  let &colorcolumn=80
+endif
 
 " map CtrlP buffer & MRU search
 map <Leader>b :CtrlPBuffer<CR>
