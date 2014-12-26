@@ -137,10 +137,29 @@ map <leader>t :TagbarToggle<CR>
 set number
 
 " Map the arrow keys to be based on display lines, not physical lines
-map <Down> gj
-map <Up> gk
-map j gj
-map k gk
+nnoremap <silent> j :<C-U>call Down(v:count)<CR>
+vnoremap <silent> j gj
+
+nnoremap <silent> k :<C-U>call Up(v:count)<CR>
+vnoremap <silent> k gk
+
+" include this function from http://stackoverflow.com/questions/20975928/moving-the-cursor-through-long-soft-wrapped-lines-in-vim
+" to make 10k work correctly in relativenumber
+function! Down(vcount)
+  if a:vcount == 0
+    exe "normal! gj"
+  else
+    exe "normal! ". a:vcount ."j"
+  endif
+endfunction
+
+function! Up(vcount)
+  if a:vcount == 0
+    exe "normal! gk"
+  else
+    exe "normal! ". a:vcount ."k"
+  endif
+endfunction
 
 " Toggle hlsearch with <leader>hs
 nmap <leader>hs :set hlsearch! hlsearch?<CR>
