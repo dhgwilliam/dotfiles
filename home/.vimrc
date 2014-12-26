@@ -187,3 +187,48 @@ map <Leader>m :CtrlPMRUFiles<CR>
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
+
+" buffer navigation
+map <Leader>] :bn<CR>
+map <Leader>[ :bp<CR>
+" tab navigation
+map <Leader>tn :tabnew<CR>
+map <Leader>tc :tabclose<CR>
+map <Leader><Leader>] :tabn<CR>
+map <Leader><Leader>[ :tabp<CR>
+
+
+noremap <Leader>= :Tab /=<CR>
+noremap <Leader><Leader>= :Tab /=><CR>
+
+" overtone REPL shortcuts
+map <Leader>e {V}:Eval<CR>
+
+" ack settings
+let g:ack_default_options = " -s -H --nocolor --nogroup --column --ignore-dir=.pe_build --ignore-dir=.vagrant --ignore-dir=coverage"
+
+set modeline
+set modelines=5
+
+" centralize swap files
+set directory=/tmp,/Users/david/.vim/swp
+
+set relativenumber
+
+" permanent undo
+if has("persistent_undo")
+  set undodir=expand('~/.vim/undodir/')
+  set undofile
+endif
+
+" set paste
+map <Leader>p :set paste!<CR>
+
+" go stuff
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+au FileType go nmap <leader>gr <Plug>(go-run)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+au FileType go nmap <leader>gc <Plug>(go-coverage)
