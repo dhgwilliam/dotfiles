@@ -34,6 +34,7 @@ Bundle 'Pychimp/vim-sol'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'tpope/vim-fugitive'
+Bundle 'mbbill/undotree'
 Bundle 'mileszs/ack.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'rdolgushin/groovy.vim'
@@ -131,7 +132,8 @@ autocmd FileType mkd normal zR
 autocmd FileType puppet autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " tagbar
-map <leader>t :TagbarToggle<CR>
+map <leader>t :TagbarOpenAutoClose<CR>
+map <leader>tt :TagbarToggle<CR>
 
 " line numbering
 set number
@@ -232,3 +234,13 @@ au FileType go nmap <leader>gr <Plug>(go-run)
 au FileType go nmap <leader>gb <Plug>(go-build)
 au FileType go nmap <leader>gt <Plug>(go-test)
 au FileType go nmap <leader>gc <Plug>(go-coverage)
+"
+" options i stole from /etc/vim/vimrc
+set showcmd    " Show (partial) command in status line.
+set showmatch  " Show matching brackets.
+set ignorecase " Do case insensitive matching
+set smartcase  " Do smart case matching
+set incsearch  " Incremental search
+
+" undotree
+nnoremap <Leader>u :UndotreeToggle<cr>
