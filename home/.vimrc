@@ -39,6 +39,9 @@ Bundle 'mileszs/ack.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'rdolgushin/groovy.vim'
 Bundle 'fatih/vim-go'
+Bundle 'Yggdroot/indentLine'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'Valloric/YouCompleteMe'
 
 " overtone plugins
 " Bundle 'guns/vim-clojure-static'
@@ -122,7 +125,7 @@ syn on
 " color zenburn
 " AirlineTheme zenburn
 " colorscheme light
-color pyte
+color zenburn
 let g:airline_theme = 'laederon'
 
 " folding
@@ -244,3 +247,11 @@ set incsearch  " Incremental search
 
 " undotree
 nnoremap <Leader>u :UndotreeToggle<cr>
+
+" indentLine
+let g:indentLine_color_term = 241
+
+" force airline to show up
+set laststatus=2
+let g:airline_theme='base16'
+
