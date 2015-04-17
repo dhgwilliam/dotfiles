@@ -16,30 +16,30 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jnurmine/Zenburn'
-Bundle 'godlygeek/tabular'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'majutsushi/tagbar'
-Bundle 'rodjek/vim-puppet'
-Bundle 'bling/vim-airline'
-Bundle 'scrooloose/syntastic'
-Bundle 'Pychimp/vim-sol'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'plasticboy/vim-markdown'
-Bundle 'tpope/vim-fugitive'
+Bundle 'bling/vim-airline'
+Bundle 'fatih/vim-go'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'gmarik/vundle'
+Bundle 'godlygeek/tabular'
+Bundle 'jnurmine/Zenburn'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'majutsushi/tagbar'
 Bundle 'mbbill/undotree'
 Bundle 'mileszs/ack.vim'
-Bundle 'flazz/vim-colorschemes'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'Pychimp/vim-sol'
 Bundle 'rdolgushin/groovy.vim'
-Bundle 'fatih/vim-go'
-Bundle 'Yggdroot/indentLine'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Lokaltog/vim-easymotion'
+Bundle 'rodjek/vim-puppet'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Yggdroot/indentLine'
 
 if vundle_ready == 0
     echo 'Installing bundles...'
@@ -73,6 +73,7 @@ map <leader>tt :TagbarToggle<CR>
 
 " line numbering
 set number
+set relativenumber
 
 " Map the arrow keys to be based on display lines, not physical lines
 nnoremap <silent> j :<C-U>call Down(v:count)<CR>
@@ -150,8 +151,6 @@ set modelines=5
 
 " centralize swap files
 set directory=/tmp,/Users/david/.vim/swp
-
-set relativenumber
 
 " permanent undo
 if has("persistent_undo")
