@@ -33,6 +33,7 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'Pychimp/vim-sol'
 Bundle 'rdolgushin/groovy.vim'
 Bundle 'rodjek/vim-puppet'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-endwise'
@@ -186,3 +187,5 @@ let g:indentLine_color_term = 241
 " force airline to show up
 set laststatus=2
 let g:airline_theme='base16'
+
+noremap <Leader>s :%s/\s\+$//g<CR>
