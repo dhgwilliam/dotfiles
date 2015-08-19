@@ -38,6 +38,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Yggdroot/indentLine'
@@ -56,7 +57,7 @@ set backspace=indent,eol,start
 " nerdtree
 map <leader>n :NERDTreeToggle<CR>
 map <leader><leader>n :NERDTreeFocus<CR>
-" autocmd vimenter * if !argc() | NERDTree | endif
+autocmd vimenter * if !argc() | NERDTree | endif
 
 syn on
 color zenburn
@@ -189,3 +190,5 @@ set laststatus=2
 let g:airline_theme='base16'
 
 noremap <Leader>s :%s/\s\+$//g<CR>
+
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
