@@ -16,32 +16,53 @@ call vundle#rc()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'airblade/vim-gitgutter'
-Bundle 'bling/vim-airline'
-Bundle 'fatih/vim-go'
-Bundle 'flazz/vim-colorschemes'
 Bundle 'gmarik/vundle'
-Bundle 'godlygeek/tabular'
-Bundle 'jnurmine/Zenburn'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
-Bundle 'mbbill/undotree'
 Bundle 'mileszs/ack.vim'
 Bundle 'plasticboy/vim-markdown'
-Bundle 'Pychimp/vim-sol'
 Bundle 'rdolgushin/groovy.vim'
-Bundle 'rodjek/vim-puppet'
+Bundle 'Yggdroot/indentLine'
+Bundle 'ChesleyTan/wordCount.vim'
+" theme
+Bundle 'jnurmine/Zenburn'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'Pychimp/vim-sol'
+" core plugins
+Bundle 'bling/vim-airline'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mbbill/undotree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
-Bundle 'Yggdroot/indentLine'
+Bundle 'Raimondi/delimitMate'
+" git
+Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-fugitive'
+" ruby
+Bundle 'tpope/vim-endwise'
+" puppet
+Bundle 'rodjek/vim-puppet'
+Bundle 'godlygeek/tabular'
+" clojure
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'vim-scripts/paredit.vim'
+Bundle 'guns/vim-clojure-static'
+Bundle 'tpope/vim-fireplace'
+" elixir
+Bundle 'elixir-lang/vim-elixir'
+" terraform
+Bundle 'markcornick/vim-terraform.git'
+" powershell
+Bundle 'PProvost/vim-ps1'
+" elm
+Bundle 'ElmCast/elm-vim'
+" go-lang
+Bundle 'fatih/vim-go'
 
 if vundle_ready == 0
     echo 'Installing bundles...'
@@ -62,6 +83,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 syn on
 color zenburn
 let g:airline_theme = 'laederon'
+let g:airline_powerline_fonts = 1
 
 " folding
 autocmd FileType mkd normal zR
@@ -125,6 +147,7 @@ endif
 " map CtrlP buffer & MRU search
 map <Leader>b :CtrlPBuffer<CR>
 map <Leader>m :CtrlPMRUFiles<CR>
+let g:ctrlp_show_hidden = 1
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
@@ -192,3 +215,14 @@ let g:airline_theme='base16'
 noremap <Leader>s :%s/\s\+$//g<CR>
 
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+
+map <Leader>w :WordCount<cr>
+
+" rainbow parens
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+" xclip
+noremap <Leader>y :!xclip -selection clipboard<CR>
