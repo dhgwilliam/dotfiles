@@ -21,7 +21,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
-Bundle 'plasticboy/vim-markdown'
 Bundle 'rdolgushin/groovy.vim'
 Bundle 'Yggdroot/indentLine'
 Bundle 'ChesleyTan/wordCount.vim'
@@ -30,7 +29,8 @@ Bundle 'jnurmine/Zenburn'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'Pychimp/vim-sol'
 " core plugins
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mbbill/undotree'
 Bundle 'scrooloose/nerdcommenter'
@@ -38,8 +38,12 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-sensible'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'Raimondi/delimitMate'
+Bundle 'godlygeek/tabular'
+" markdown
+Bundle 'plasticboy/vim-markdown'
 " git
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
@@ -47,7 +51,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-endwise'
 " puppet
 Bundle 'rodjek/vim-puppet'
-Bundle 'godlygeek/tabular'
 " clojure
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'vim-scripts/paredit.vim'
@@ -63,6 +66,10 @@ Bundle 'PProvost/vim-ps1'
 Bundle 'ElmCast/elm-vim'
 " go-lang
 Bundle 'fatih/vim-go'
+" gradle
+Bundle 'tfnico/vim-gradle'
+" rust
+Bundle 'rust-lang/rust.vim'
 
 if vundle_ready == 0
     echo 'Installing bundles...'
@@ -86,10 +93,14 @@ let g:airline_theme = 'laederon'
 let g:airline_powerline_fonts = 1
 
 " folding
-autocmd FileType mkd normal zR
+" autocmd FileType mkd normal zR
+set nofoldenable
 
 " remove trailing whitespace in puppet files
 autocmd FileType puppet autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+" stop managing hashrocket alignment, vim-puppet is too aggressive
+let g:puppet_align_hashes = 0
 
 " tagbar
 map <leader>t :TagbarOpenAutoClose<CR>

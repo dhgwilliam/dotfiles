@@ -7,7 +7,10 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
 
-[[ "$(hostname)" == 'M-77G8WP.corp.standard.com' ]] && DEFAULT_USER='david.gwilliam@standard.com' || DEFAULT_USER='david'
+setopt nocasematch
+
+[[ "$(hostname)" =~ 'M-77G8WP' ]] && \
+  DEFAULT_USER='david.gwilliam@standard.com' || DEFAULT_USER='david'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -32,9 +35,6 @@ plugins=(git vi-mode autojump ssh-agent zsh-syntax-highlighting)
 # autojump config
 source "$ZSH/oh-my-zsh.sh"
 
-# PATH & envpuppet
-# export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/npm/bin:/Users/david/bin
-# export ENVPUPPET_BASEDIR=/Users/david/src
 export KEYTIMEOUT=1
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
 export PATH=$PATH:~/bin:~/src/go/bin:/usr/local/go/bin
@@ -51,6 +51,7 @@ alias tmux='tmux attach || tmux -2 new'
 alias gpf='git pull --ff-only'
 alias gcv='git commit -v'
 alias gcav='git commit -av'
+alias vim='mvim -v' # mac-only
 alias vi=vim
 alias vdf='vagrant destroy -f'
 alias pdf=evince
@@ -64,6 +65,8 @@ alias 750='mv ~/Downloads/document.txt ~/Documents/750words/$(date +%Y-%m-%d).md
 alias i3='vi ~/.i3/config'
 alias dstat='dstat -cdnpmgs --top-bio --top-cpu --top-mem'
 alias track='keybase track'
+alias marked='open -a marked'
+alias refresh='source ~/.zshrc'
 
 # rbenv config
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -72,10 +75,8 @@ eval "$(rbenv init -)"
 # zsh autocomplete (must be last?)
 autoload -U compinit; compinit
 
-export NVM_DIR="/home/david/.nvm"
+export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export EDITOR=/usr/bin/vim
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -86,5 +87,24 @@ if [ -e /usr/local/bin/direnv ] ; then
   eval "$(direnv hook zsh)"
 fi
 
-[[ $(which nvm) ]] && nvm use node
-[[ $(which azure) ]] && . <(azure --completion)
+which nvm 2>&1 > /dev/null
+[[ $? -eq 0 ]] && nvm use node
+which azure 2>&1 > /dev/null
+[[ $? -eq 0 ]] && . <(azure --completion)
+
+# standard-only
+ping -c 3 proxy.standard.com >/dev/null 2>&1 
+if [ $? -eq 0 ] ; then
+  export http_proxy=http://proxy.standard.com:8080
+  export https_proxy=http://proxy.standard.com:8080
+  export no_proxy='127.0.0.1,.standard.com'
+  unset offsite
+else
+  unset http{,s}_proxy
+  export offsite=true
+fi
+
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+export EDITOR='mvim -v'
+export PATH="/usr/local/sbin:$PATH"
