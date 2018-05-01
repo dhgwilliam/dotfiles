@@ -1,81 +1,58 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-" Bootstrap Vundle
-let vundle_ready = 1
-  if !filereadable(expand('~/.vim/bundle/vundle/README.md'))
-  let vundle_ready = 0
-  echo 'Found that Vundle is not installed. Installing...'
-  echo
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-endif
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'majutsushi/tagbar'
-Bundle 'mileszs/ack.vim'
-Bundle 'rdolgushin/groovy.vim'
-Bundle 'Yggdroot/indentLine'
-Bundle 'ChesleyTan/wordCount.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
+Plug 'rdolgushin/groovy.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'ChesleyTan/wordCount.vim'
 " theme
-Bundle 'jnurmine/Zenburn'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'Pychimp/vim-sol'
+Plug 'jnurmine/Zenburn'
+Plug 'flazz/vim-colorschemes'
+Plug 'Pychimp/vim-sol'
 " core plugins
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mbbill/undotree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-sensible'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Raimondi/delimitMate'
-Bundle 'godlygeek/tabular'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim'
+Plug 'mbbill/undotree'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'Valloric/YouCompleteMe'
+Plug 'Raimondi/delimitMate'
+Plug 'godlygeek/tabular'
 " markdown
-Bundle 'plasticboy/vim-markdown'
+Plug 'gabrielelana/vim-markdown'
 " git
-Bundle 'airblade/vim-gitgutter'
-Bundle 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " ruby
-Bundle 'tpope/vim-endwise'
+Plug 'tpope/vim-endwise'
 " puppet
-Bundle 'rodjek/vim-puppet'
-" clojure
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'vim-scripts/paredit.vim'
-Bundle 'guns/vim-clojure-static'
-Bundle 'tpope/vim-fireplace'
+Plug 'rodjek/vim-puppet'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'vim-scripts/paredit.vim'
 " elixir
-Bundle 'elixir-lang/vim-elixir'
+Plug 'elixir-lang/vim-elixir'
 " terraform
-Bundle 'markcornick/vim-terraform.git'
+Plug 'hashivim/vim-terraform'
 " powershell
-Bundle 'PProvost/vim-ps1'
-" elm
-Bundle 'ElmCast/elm-vim'
+Plug 'PProvost/vim-ps1'
 " go-lang
-Bundle 'fatih/vim-go'
+Plug 'fatih/vim-go'
 " gradle
-Bundle 'tfnico/vim-gradle'
+Plug 'tfnico/vim-gradle'
 " rust
-Bundle 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 
-if vundle_ready == 0
-    echo 'Installing bundles...'
-    echo
-    :BundleInstall
-endif
+call plug#end()
 
 filetype plugin indent on     " required!
 
