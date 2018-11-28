@@ -9,8 +9,7 @@ ZSH_THEME="agnoster"
 
 setopt nocasematch
 
-[[ "$(hostname)" =~ 'M-77G8WP' ]] && \
-  DEFAULT_USER='david.gwilliam@standard.com' || DEFAULT_USER='david'
+[[ "$(hostname)" =~ 'logomach' ]] && DEFAULT_USER='davidgwilliam'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -46,12 +45,12 @@ bindkey '^?' backward-delete-char
 
 # ALIASES
 alias gist=jist
-alias v=/usr/bin/vagrant
 alias tmux='tmux attach || tmux -2 new'
 alias gpf='git pull --ff-only'
 alias gcv='git commit -v'
 alias gcav='git commit -av'
-alias vi=vim
+alias vi=nvim
+alias vim=nvim
 alias vdf='vagrant destroy -f'
 alias pdf=evince
 alias be='bundle exec'
@@ -59,6 +58,11 @@ alias pbcopy='xclip -selection clipboard'
 alias pbpaste='xclip -selection clipboard -o'
 alias src='cd ~/src'
 alias tf=terraform
+alias lp=lpass
+alias v=vaulted
+alias src='cd ~/src'
+alias k=kubectl
+alias gmf='git merge --ff-only'
 
 # rbenv config
 export PATH="$HOME/.rbenv/bin:$PATH"

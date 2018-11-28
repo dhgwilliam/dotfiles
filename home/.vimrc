@@ -167,7 +167,7 @@ set directory=/tmp,/Users/david/.vim/swp
 
 " permanent undo
 if has("persistent_undo")
-  set undodir=expand('~/.vim/undodir/')
+  let &undodir=expand('~/.vim/undodir/')
   set undofile
 endif
 
